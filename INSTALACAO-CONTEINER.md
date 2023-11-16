@@ -15,9 +15,9 @@ A arquitetura da aplicação fica, portanto, com 4 serviços:
 
 ### CKAN
 
-Os dois serviços do CKAN usam a mesma imagem, que contém o Python e código da aplicação. O Dockerfile desta desta imagem está na pasta docker/ckan.
+Os dois serviços do CKAN usam a mesma imagem, que contém o Python e código da aplicação. O Dockerfile desta desta imagem está na pasta [docker/ckan](docker/ckan).
 
-Por padrão a imagem inicia o processo do uWSGI. Se quiser iniciar o processo do `worker`, passe como comando para a imagem a palavra `worker`.
+Por padrão a imagem inicia o processo do uWSGI. Se quiser iniciar o processo *worker*, passe como comando para a imagem a palavra `worker`.
 
 O contêiner uWSGI responde as requisições HTTP na porta 8080.
 
@@ -39,7 +39,7 @@ Este contêiner não precisa de volumes, pois os dados não serão persistidos.
 
 ## Docker Compose
 
-A pasta docker contém o arquivo `docker-compose.yml` como referência para as configurações dos serviços em um ambiente de contêineres.
+A pasta docker contém o arquivo [docker-compose.yml](docker/docker-compose.yml) como referência para as configurações dos serviços em um ambiente de contêineres.
 
 Este arquivo também conta com o PostgreSQL em contêiner, mas apenas para teste. Não recomendamos usar o PostgreSQL em contêiner.
 
@@ -75,13 +75,13 @@ O Redis não precisa de configurações adicionais.
 
 ## Configuração do CKAN
 
-O arquivo de configuração usado pela imagem está em docker/ckan/ckan.ini.
+O arquivo de configuração usado pela imagem está em [docker/ckan/ckan.ini](docker/ckan/ckan.ini).
 
 Você pode modificá-lo diretamente e reconstruir a imagem. No entanto, não é recomendado incluir informações sensíveis na imagem (como a senha do banco de dados).
 Algumas opções para mitigar esse problema são:
 * Usar variáveis de ambiente: o CKAN lê diretamente **algumas** configurações por variáveis de ambiente. Veja em [Environment variables](https://docs.ckan.org/en/2.10/maintaining/configuration.html#environment-variables).
 * Montar o arquivo ckan.ini dentro da imagem a partir de um objeto Secret do Kubernetes (https://kubernetes.io/docs/concepts/configuration/secret/) ou equivalente na plataforma utilizada pelo órgão.
-* No Entrypoint da imagem (arquivo docker/ckan/ckan-entrypoint.sh), programar uma lógica que busca os valores sensíveis em um serviço de Vault (Ex: AWS Secrets Manager, Hashicorp Vault, entre outros) e os substituir no arquivo /etc/ckan/default/ckan.ini da imagem. Esta é a forma utilizada na CGU.
+* No Entrypoint da imagem (arquivo [ckan-entrypoint.sh](docker/ckan/ckan-entrypoint.sh), programar uma lógica que busca os valores sensíveis em um serviço de Vault (Ex: AWS Secrets Manager, Hashicorp Vault, entre outros) e os substituir no arquivo `/etc/ckan/default/ckan.ini` da imagem. Esta é a forma utilizada na CGU.
 
 As principais configurações a serem modificadas estão marcadas com "ALTERAR ABAIXO" no arquivo ckan.ini e são mostradas a seguir:
 
