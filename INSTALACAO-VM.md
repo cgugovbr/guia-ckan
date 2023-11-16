@@ -81,7 +81,7 @@ Para mais informações sobre segurança e autenticação no Redis consulte a do
 
 O arquivo de configuração principal do CKAN fica em `/etc/ckan/default/ckan.ini`.
 
-Copie o exemplo disponibilizado em vm/ckan.ini e modifique principalmente os parâmetros marcados com "ALTERAR ABAIXO":
+Copie o exemplo disponibilizado em `vm/ckan.ini` e modifique principalmente os parâmetros marcados com "ALTERAR ABAIXO":
 
 ```ini
 # String aleatória usada na geração de hashes para sessões
@@ -147,10 +147,12 @@ server {
 }
 ```
 
+`server_name` é o domínio do site, `ssl_certificate` indica o caminho para o arquivo do certificado e `ssl_certificate_key` indica o caminho para o arquivo da chave privada do certificado.
+
 Consulte mais detalhes sobre essa configuração do Nginx em [Configuring HTTPS servers](https://nginx.org/en/docs/http/configuring_https_servers.html).
 
 Também é interessante configurar o Nginx para redirecionar as requisições HTTP para HTTPS.
-Para isso adiciona um novo bloco `server` no mesmo arquivo com o seguinte conteúdo:
+Para isso adicione um novo bloco `server` no mesmo arquivo com o seguinte conteúdo:
 
 ```
 server {
@@ -160,7 +162,7 @@ server {
 }
 ```
 
-Em seguida reinicie o servidor Nginx e teste:
+Em seguida, reinicie o servidor Nginx e teste:
 
 ```sh
 sudo systemctl restart nginx

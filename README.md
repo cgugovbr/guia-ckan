@@ -1,6 +1,7 @@
 # Guia de Instalação e Configuração do CKAN
 
 **Autor:** Controladoria-Geral da União (CGU)
+
 **Atualizado em:** novembro/2023
 
 ## Introdução
@@ -45,6 +46,7 @@ Serão detalhadas duas opções de instalação: usando servidores/VMs dedicados
 Acesse a seção que for mais adequada para a infra-estrutura existente no órgão.
 
 [Opção 1 - servidor ou VM dedicada](INSTALACAO-VM.md)
+
 [Opção 2 - contêineres](INSTALACAO-CONTEINER.md)
 
 ## Contato
