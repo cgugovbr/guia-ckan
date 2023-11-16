@@ -1,0 +1,61 @@
+version: "3"
+
+services:
+  postgresql_svc:
+    image: postgres:14
+    environment:
+      - POSTGRES_USER=ckan_user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=ckan_db
+      - PGDATA=/var/lib/postgresql/data/db
+    volumes:
+      - ./data/postgresql:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+
+  init:
+    image: alpine
+    entrypoint: /bin/sh -c "mkdir -p /solr/vol && chown 8983:8983 /solr/vol && mkdir -p /ckan/vol && chown 900:900 /ckan/vol"
+    volumes:
+      - ./data/solr:/solr
+      - ./data/ckan:/ckan
+
+  solr_svc:
+    image: solr:8
+    volumes:
+      - ./data/solr/vol:/var/solr
+    restart: unless-stopped
+    depends_on:
+      - init
+
+  redis_svc:
+    image: redis:latest
+    restart: unless-stopped
+
+  ckan_uwsgi:
+    build:
+      context: ckan
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data/ckan/vol:/var/lib/ckan/default
+    restart: unless-stopped
+    depends_on:
+      - init
+      - postgresql_svc
+      - solr_svc
+      - redis_svc
+
+  ckan_worker:
+    build:
+      context: ckan
+    command: worker
+    volumes:
+      - ./data/ckan/vol:/var/lib/ckan/default
+    restart: unless-stopped
+    depends_on:
+      - init
+      - postgresql_svc
+      - solr_svc
+      - redis_svc
