@@ -49,6 +49,21 @@ Acesse a seção que for mais adequada para a infra-estrutura existente no órg�
 
 [Opção 2 - contêineres](INSTALACAO-CONTEINER.md)
 
+## Integração com o portal dados.gov.br
+
+Tendo o CKAN instalado no órgão, os dados inseridos podem ser automaticamente sincronizados com o Portal de Dados Abertos do Governo Federal.
+
+Para que isso ocorra, não é necessária modificação alguma na instalação do CKAN do órgão. A configuração é feita no próprio Portal do Governo Federal.
+
+Para entender melhor como os dados devem ser preenchidos no CKAN e como eles aparecem no Portal do Governo Federal consulte a seção [Preenchimento dos dados no CKAN](PREENCHIMENTO-CKAN.md).
+
+### Observação Técnica
+
+O Portal do Governo Federal busca os dados no CKAN do órgão através da API pública do CKAN. As chamadas dessa API são URLs que começam com `/api`.
+
+Caso o órgão implemente alguma regra de firewall para bloquear o acesso de robôs às páginas do CKAN, a sincronização pode não acontecer corretamente.
+Nesses casos, entre em contato com a CGU.
+
 ## Contato
 
 Divisão de Prospecção de Soluções
