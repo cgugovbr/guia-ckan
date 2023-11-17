@@ -66,7 +66,7 @@ Nesses casos, entre em contato com a CGU.
 
 ## Contato
 
-Divisão de Prospecção de Soluções
+Divisão de Prospecção de Soluções\
 Controladoria-Geral da União (CGU)
 
 disol@cgu.gov.br
