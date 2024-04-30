@@ -87,7 +87,15 @@ Os campos devem ser preenchidos com chave e valor exatamente como explicados a s
     * ESTADUAL
     * MUNICIPAL
 
-5. Granularidade Espacial
+5. Detalhamento da Cobertura Espacial
+
+* Chave: valorCoberturaEspacial
+* Valores possíveis: caso a Cobertura Espacial seja Federal, não é necessário
+preencher. Caso seja Estadual, preencher com a UF do estado a que se refere (Ex: GO).
+Caso seja Municipal, preencher com o código do município de 6 dígitos definido pelo IBGE (Ver https://www.ibge.gov.br/explica/codigos-dos-municipios.php).
+Notar que se o código tiver 7 dígitos o último é apenas um dígito de verificação e não precisa ser preenchido aqui.
+
+6. Granularidade Espacial
 
 * Chave: granularidadeEspacial
 * Valores possíveis:
@@ -95,19 +103,12 @@ Os campos devem ser preenchidos com chave e valor exatamente como explicados a s
     * ESTADUAL
     * MUNICIPAL
 
-6. Atualização de Versão
+7. Atualização de Versão
 
 * Chave: atualizacaoVersao
 * Valores possíveis:
     * true
     * false
-
-7. Homologado
-
-* Chave: statusHomologacao
-* Valores possíveis:
-    * HOMOLOGADO
-    * NAO\_HOMOLOGADO
 
 8. Descontinuado
 
@@ -124,7 +125,7 @@ Os campos devem ser preenchidos com chave e valor exatamente como explicados a s
 10. Observância Legal
 
 * Chave: observanciaLegal
-* Valores possíveis: número inteiro de acordo com a relação abaixo
+* Valores possíveis: lista de números inteiros separados por vírgula de acordo com a relação abaixo (Ex: 3,26)
     * 1 -> Público
     * 2 -> Restrito - Direito Autoral (Lei nº 9.610/1998)
     * 3 -> Restrito - Informação Pessoal (Art. 31 da Lei nº 12.527/2011)
