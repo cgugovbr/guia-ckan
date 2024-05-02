@@ -2,7 +2,7 @@
 
 **Autor:** Controladoria-Geral da União (CGU)
 
-**Atualizado em:** novembro/2023
+**Atualizado em:** maio/2024
 
 ## Introdução
 
