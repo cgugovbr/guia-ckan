@@ -1,12 +1,52 @@
 # Preenchimento dos dados no CKAN
 
+## Temas
+
+Antes de começar a preencher os conjuntos de dados no CKAN, é importante configurar os temas do Portal de Dados Abertos.
+
+Os temas do Portal são grupos no CKAN. Os seguintes grupos devem ser criados no CKAN do órgão.
+É essencial que os nomes sejam idênticos:
+* Abastecimento
+* Administração
+* Agropecuária, Pesca e Extrativismo
+* Comércio e Serviços
+* Comunicações
+* Cultura
+* Defesa Nacional
+* Economia e Finanças
+* Educação
+* Energia
+* Esporte e Lazer
+* Habitação
+* Indústria
+* Infraestrutura e Fomento
+* Meio Ambiente
+* Pesquisa e Desenvolvimento
+* Planejamento e Gestão
+* Previdência Social
+* Proteção Social
+* Relações Internacionais
+* Saneamento
+* Saúde
+* Segurança e Ordem Pública
+* Trabalho
+* Transportes
+* Urbanismo
+
+A associação de um conjunto de dados com um grupo (tema) é feita apenas após a criação do conjunto,
+em uma aba dedicada, conforme ilustrado abaixo:
+
+![Aba para associação com grupos](imagens/aba-grupos.png)
+
+## Formulário do conjunto de dados
+
 O formulário do conjunto de dados do CKAN possui campos definidos originalmente e campos customizados.
 
 O Portal de Dados Abertos do Governo Federal utiliza os dois tipos de campo, listados a seguir.
 
-## Campos Originais
+### Campos Originais
 
-### Campos que mantém a mesma terminologia
+#### Campos que mantém a mesma terminologia
 
 Os campos a seguir tem a mesma terminologia no CKAN e no Portal de Dados Abertos, sendo de fácil identificação:
 * Título
@@ -14,7 +54,7 @@ Os campos a seguir tem a mesma terminologia no CKAN e no Portal de Dados Abertos
 * Licença
 * Versão
 
-### Campos com terminologia ou comportamento diferente
+#### Campos com terminologia ou comportamento diferente
 
 1. URL
 
@@ -39,7 +79,7 @@ O campo mantenedor aparece no Portal com o nome de "Área técnica responsável 
 
 O campo de e-mail do mantenedor aparece no Portal com o nome de "E-mail da área técnica".
 
-### Campos não utilizados
+#### Campos não utilizados
 
 Os campos a seguir não são exibidos no Portal:
 * Visibilidade: o Portal só importa conjuntos que estão públicos no CKAN do órgão
@@ -48,7 +88,7 @@ Os campos a seguir não são exibidos no Portal:
 * Autor
 * E-mail do autor
 
-## Campos Customizados
+### Campos Customizados
 
 No CKAN, os campos customizados são nada mais do que pares de chave/valor que podem ser adicionados
 ao conjunto de dados para incluir informações adicionais não cobertas pelos campos originais.
@@ -211,7 +251,7 @@ Notar que se o código tiver 7 dígitos o último é apenas um dígito de verifi
     * true
     * false
 
-## Formulário ilustrado
+### Formulário ilustrado
 
 As imagens a seguir mostram o formulário do CKAN indicando os campos que são tratados pelo Portal de Dados Abertos:
 
