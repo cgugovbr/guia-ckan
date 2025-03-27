@@ -100,14 +100,16 @@ Os campos devem ser preenchidos com chave e valor exatamente como explicados a s
 
 * Chave: periodicidade
 * Valores possíveis:
-    * ANUAL
     * DIARIA
-    * MENSAL
-    * OUTRAS
-    * QUINZENAL
     * SEMANAL
-    * SOB\_DEMANDA
+    * QUINZENAL
+    * MENSAL
     * TRIMESTRAL
+    * QUADRIMESTRAL
+    * SEMESTRAL
+    * ANUAL
+    * SOB\_DEMANDA
+    * OUTRAS
 
 2. Cobertura Temporal Início
 
