@@ -57,6 +57,10 @@ Para que isso ocorra, não é necessária modificação alguma na instalação d
 
 Para entender melhor como os dados devem ser preenchidos no CKAN e como eles aparecem no Portal do Governo Federal consulte a seção [Preenchimento dos dados no CKAN](PREENCHIMENTO-CKAN.md).
 
+De maneira alternativa, é possível integrar um sistema qualquer do órgão com o Portal de Dados Abertos sem
+a necessidade de instalação de um sistema CKAN, bastanto que o sistema em questão consiga gerar um catálogo
+de dados no formato DCAT-BR. Veja mais detalhes em [Integração DCAT-BR](INTEGRACAO-DCAT-BR.md).
+
 ### Observação Técnica
 
 O Portal do Governo Federal busca os dados no CKAN do órgão através da API pública do CKAN. As chamadas dessa API são URLs que começam com `/api`.
