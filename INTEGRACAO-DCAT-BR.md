@@ -18,7 +18,13 @@ um predicado (aresta do grafo) e um objeto (outro nó do grafo). Esse modelo
 simples permite representar diversos tipos de relação entre dados.
 
 Um grafo RDF pode ser serializado de diversas formas, sendo as mais comuns o
-XML, o JSON-LD e o Turtle. (TODO colocar alguma ref)
+XML, o JSON-LD e o Turtle.
+
+Referências:
+* https://www.w3.org/RDF/
+* https://www.w3.org/TR/rdf11-xml/
+* https://www.w3.org/TR/json-ld11/
+* https://www.w3.org/TR/turtle/
 
 ## O padrão DCAT
 
