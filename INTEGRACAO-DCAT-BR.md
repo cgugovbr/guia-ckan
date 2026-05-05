@@ -61,7 +61,7 @@ perfil DCAT-BR para as classes acima.
 | dcterms:title              | Literal                        | Título                                 |
 | dcterms:description        | Literal                        | Descrição                              |
 | dcat:license               | URI                            | Licença de Uso                         |
-| dcterms:accrualPeriodicity | Literal                        | Periodicidade de Atualização           |
+| dcterms:accrualPeriodicity | URI                            | Periodicidade de Atualização           |
 | dcterms:accessRights       | URI                            | Observância Legal                      |
 | dcterms:publisher          | Literal                        | Área técnica responsável pelo dado     |
 | dcat:contactPoint          | vcard:Organization             | E-mail da área técnica responsável     |
@@ -101,11 +101,11 @@ Commons Atributtion.
 #### Propriedade `dcterms:accrualPeriodicity`
 
 Deve seguir o vocabulário controlado para frequência (VCR-FR) e estar associada
-a um valor literal de periodicidade.
+a uma URI que representa um valor de periodicidade.
 
 Consulte os valores disponíveis na [documentação do VCR-FR](https://dcat-br.github.io/dcat-br/docs/vocabularies/VCR-FR/index.html).
 
-Exemplo: "Mensal" para atualização de uma vez por mês.
+Exemplo: https://dcat-br.github.io/dcat-br/docs/vocabularies/VCR-FR/MENSAL para atualização de uma vez por mês.
 
 #### Propriedade `dcterms:accessRights`
 
