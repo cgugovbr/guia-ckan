@@ -67,7 +67,7 @@ perfil DCAT-BR para as classes acima.
 | dcat:contactPoint          | vcard:Organization             | E-mail da área técnica responsável     |
 | dcat:keyword               | Literal                        | Palavras-chave                         |
 | adms:version               | Literal                        | Versão                                 |
-| dcat:theme                 | Literal                        | Tema associado ao conjunto de dados    |
+| dcat:theme                 | URI                            | Tema associado ao conjunto de dados    |
 | dcterms:language           | URI                            | Idioma                                 |
 | dcterms:isVersionOf        | URI                            | Versão anterior                        |
 | dcterms:isReplacedBy       | URI                            | Substituído por                        |
@@ -142,35 +142,16 @@ Deve conter um texto livre indicando a versão do conjunto de dados.
 
 #### Propriedade `dcat:theme`
 
-Deve estar associada a um dos valores possíveis abaixo:
-* Abastecimento
-* Administração
-* Agropecuária, Pesca e Extrativismo
-* Comércio e Serviços
-* Comunicações
-* Cultura
-* Defesa Nacional
-* Economia e Finanças
-* Educação
-* Energia
-* Esporte e Lazer
-* Habitação
-* Indústria
-* Infraestrutura e Fomento
-* Meio Ambiente
-* Pesquisa e Desenvolvimento
-* Planejamento e Gestão
-* Previdência Social
-* Proteção Social
-* Relações Internacionais
-* Saneamento
-* Saúde
-* Segurança e Ordem Pública
-* Trabalho
-* Transportes
-* Urbanismo
+Deve seguir o vocabulário controlado de temas e estar associada a uma URI
+que representa um tema.
 
-A propriedade pode ser definida mais de uma vez, indicando mais de um tema associado.
+Os temas disponíveis podem ser consultados na [documentação do vocabulário](https://dcat-br.github.io/dcat-br/docs/vocabularies/themes/index.html).
+
+Exemplo: https://dcat-br.github.io/dcat-br/docs/vocabularies/themes/meio-ambiente
+para o tema "Meio Ambiente".
+
+A propriedade pode ser definida mais de uma vez, indicando mais de um tema
+associado.
 
 #### Propriedade `dcterms:language`
 
