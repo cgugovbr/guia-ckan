@@ -62,7 +62,7 @@ perfil DCAT-BR para as classes acima.
 | dcterms:description        | Literal                        | Descrição                              |
 | dcat:license               | URI                            | Licença de Uso                         |
 | dcterms:accrualPeriodicity | Literal                        | Periodicidade de Atualização           |
-| dcterms:accessRights       | Literal                        | Observância Legal                      |
+| dcterms:accessRights       | URI                            | Observância Legal                      |
 | dcterms:publisher          | Literal                        | Área técnica responsável pelo dado     |
 | dcat:contactPoint          | vcard:Organization             | E-mail da área técnica responsável     |
 | dcat:keyword               | Literal                        | Palavras-chave                         |
@@ -90,66 +90,32 @@ Deve conter um texto livre indicando a descrição do conjunto de dados.
 
 #### Propriedade `dcat:license`
 
-Deve estar associada a uma URL de alguma licença
-definida em https://opendefinition.org/licenses.
+Deve seguir o vocabulário controlado de licenças de uso (VCR-LU) e estar
+associada a uma URI que indica uma licença.
 
-Exemplo: https://opendefinition.org/licenses/cc-by-sa/ para a licença Creative
-Commons Atributtion Share-Alike.
+Consulte os valores disponíveis na [documentação do VCR-LU](https://dcat-br.github.io/dcat-br/docs/vocabularies/VCR-LU/index.html#termos).
+
+Exemplo: https://creativecommons.org/licenses/by/4.0 para a licença Creative
+Commons Atributtion.
 
 #### Propriedade `dcterms:accrualPeriodicity`
 
-Deve estar associada a um dos valores literais abaixo, indicando a frequência
-que os dados são atualizados:
-* DIARIA
-* SEMANAL
-* QUINZENAL
-* MENSAL
-* TRIMESTRAL
-* QUADRIMESTRAL
-* SEMESTRAL
-* ANUAL
-* SOB\_DEMANDA
-* OUTRAS
+Deve seguir o vocabulário controlado para frequência (VCR-FR) e estar associada
+a um valor literal de periodicidade.
+
+Consulte os valores disponíveis na [documentação do VCR-FR](https://dcat-br.github.io/dcat-br/docs/vocabularies/VCR-FR/index.html).
+
+Exemplo: "Mensal" para atualização de uma vez por mês.
 
 #### Propriedade `dcterms:accessRights`
 
-Deve estar associada a um dos valores literais
-abaixo, indicando se o dado é público, restrito ou sigiloso de acordo com os
-dispositivos legais indicados:
-* Público
-* Restrito - Direito Autoral (Lei nº 9.610/1998)
-* Restrito - Informação Pessoal (Art. 31 da Lei nº 12.527/2011)
-* Restrito - Propriedade Intelectual (software) (Lei nº 9.609/1998)
-* Restrito - Protocolo pendente de análise de restrição (Art. 6º, III, da Lei nº 12.527/2011)
-* Restrito - Restrição de Acesso a Documento Preparatório (Art. 7º, §3º, da Lei nº 12.527/2011)
-* Restrito - Segredo de Justiça no Processo Civil (Art. 189 da Lei 13.105/2015)
-* Restrito - Segredo de Justiça no Processo Penal (Art. 201, §6º, do Decreto-Lei 3.689/1941)
-* Restrito - Segredo Industrial (Lei nº 9.279/1996)
-* Restrito - Sigilo Comercial (Sociedades Anônimas) (Art. 155, § 2º da Lei nº 6.404/1976)
-* Restrito - Sigilo Contábil (Art. 1.190 da Lei nº 10.406/2002)
-* Restrito - Sigilo de nome, imagem, qualificação e demais info (Art. 5º, II da Lei 12.850/13)
-* Restrito - Sigilo do Inquérito Policial (Art. 20 do Decreto-Lei 3.689/1941)
-* Restrito - Sigilo do Procedimento Admin. Disciplinar em Curso (Art. 150 da Lei nº 8.112/1990)
-* Restrito - Sigilo dos autos (Art. 7° da Resolução CNMP n° 23/2007)
-* Restrito - Sigilo Empresarial (Art. 169 da Lei nº 11.101/2005)
-* Restrito - Sigilo Funcional - SFC (Art. 26, §3º, da Lei nº 10.180/2001)
-* Restrito - Sigilo por Possibilidade de Risco ou Dano (Art. 45 do Decreto nº 7.845/2012)
-* Restrito - Sigilo Procedimento Admin. de Responsabilização (Art. 5º do Decreto nº 11.129/2022)
-* Restrito - Sigilo Profissão do Advogado (Art. 7°, inciso II, da Lei n°11.767/2008)
-* Sigiloso - Documento Preparatório - Sigiloso (Art. 7º, § 3º, da Lei nº 12.527/2001)
-* Sigiloso - Informação Pessoal Sensível (Art. 31 da Lei nº 12.527/2011)
-* Sigiloso - Reserva do Processo Ético (Art. 13 do Decreto nº 6.029/2007 e Art. 14 da Reso)
-* Sigiloso - Segredo de Justiça no Processo Civil (Art. 189 da Lei 13.105/2015)
-* Sigiloso - Segredo de Justiça no Processo Penal (Art. 201, §6º, do Decreto-Lei 3.689/1941)
-* Sigiloso - Sigilo Bancário (Art. 1º da Lei Complementar nº 105/2001b)
-* Sigiloso - Sigilo Fiscal (Art. 198, caput, da Lei nº 5.172/1966)
-* Sigiloso - Sigilo de Acordo de Leniência (Art. 31, §1º, do Decreto nº 8.420/2015)
-* Sigiloso - Sigilo de PAD em curso p/ servidores da CGU (Art. 150 da Lei nº 8.112/1990)
-* Sigiloso - Sigilo do Inquérito Policial (Art. 20 do Decreto-Lei 3.689/1941)
-* Sigiloso - Sigilo dos autos (Art. 7° da Resolução CNMP n° 23/2007)
-* Sigiloso - Sigilo Funcional - SFC (Art. 26, §3º, da Lei nº 10.180/2001)
-* Sigiloso - Sigilo Procedimento Administ. de Responsabilização (Art. 5º do Decreto nº 11.129/2022)
-* Sigiloso - Sigilo Profissão de Advogado (Art. 7°, inciso II, da Lei n°11.767/2008)
+Deve seguir o vocabulário controlado para observância legal e estar associada
+a uma URI indicando se o dado é público ou qual a norma legal que o permite ser
+restrito.
+
+Consulte os valores disponíveis na [documentação do vocabulário](https://dcat-br.github.io/dcat-br/docs/vocabularies/SEI/index.html#termos).
+
+Exemplo: https://dcat-br.github.io/dcat-br/docs/vocabularies/SEI/1 para dado público.
 
 #### Propriedade `dcterms:publisher`
 
@@ -305,7 +271,7 @@ possui mais de um recurso.
 | dcat:accessURL      | URI                            | URL                              |
 | dcterms:format      | URI                            | Formato                          |
 | dcterms:title       | Literal                        | Título                           |
-| dcterms:type        | Literal                        | Tipo do recurso                  |
+| dcterms:type        | URI                            | Tipo do recurso                  |
 | dcterms:description | Literal                        | Descrição                        |
 | dcterms:temporal    | dcterms:PeriodOfTime           | Cobertura temporal               |
 | dcat:byteSize       | Literal                        | Tamanho em bytes                 |
@@ -333,12 +299,13 @@ Deve conter um texto livre indicando o título do recurso.
 
 #### Propriedade `dcterms:type`
 
-Deve estar associada a um dos valores possíveis abaixo:
-* DADOS
-* DICIONARIO_DE_DADOS
-* DOCUMENTACAO
-* API
-* OUTRO
+Deve seguir o vocabulário controlado para tipo de recurso e estar associada a
+uma URI que representa um tipo de recurso.
+
+Consulte os valores possíveis na [documentação do vocabulário](https://dcat-br.github.io/dcat-br/docs/vocabularies/tipo-recurso/index.html#termos).
+
+Exemplo: https://dcat-br.github.io/dcat-br/docs/vocabularies/tipo-recurso/DICIONARIO_DE_DADOS
+para recurso do tipo dicionário de dados.
 
 #### Propriedade `dcterms:description`
 
