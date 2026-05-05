@@ -37,42 +37,69 @@ Veja a especificação completa do padrão DCAT em [Data Catalog Vocabulary](htt
 
 ## O perfil DCAT-BR
 
-O perfil DCAT-BR é uma especificação sobre as classes `dcat:Dataset`, que
-representa um conjunto de dados e a classe `dcat:Distribution`, que representa
-um recurso (arquivo) do conjunto de dados. O perfil define as propriedades
-que essas classes devem ter e os valores possíveis.
+O perfil DCAT-BR é uma especificação sobre as seguintes classes RDF:
 
-As tabelas a seguir mostram as propriedades definidas pelo perfil DCAT-BR para
-as duas classes:
+* [`dcat:Dataset`](#classe-dcatdataset): representa um conjunto de dados
+* [`dcat:Distribution`](#classe-dcatdistribution): representa um recurso
+(arquivo) do conjunto de dados.
+* [`dcterms:PeriodOfTime`](#classe-dctermsperiodoftime): representa um
+intervalo de tempo.
+* [`spdx:Checksum`](#classe-spdxchecksum): representa informações de verificação
+de integridade de um arquivo ou pacote.
 
-### Propriedades do cojunto de dados (classe `dcat:Dataset`)
+O perfil define as propriedades que essas classes devem ter e os valores possíveis.
 
-| Propriedade RDF        | Classe RDF do Objeto Associado | Referência                   | Campo no Portal de Dados Abertos       |
-|------------------------|--------------------------------|------------------------------|----------------------------------------|
-| dct:title              | Literal                        | Texto livre                  | Título                                 |
-| dct:description        | Literal                        | Texto livre                  | Descrição                              |
-| dcat:license           | URI                            | Ver detalhes abaixo          | Licença de Uso                         |
-| dct:accrualPeriodicity | Literal                        | Ver valores possíveis abaixo | Periodicidade de Atualização           |
-| dct:accessRights       | Literal                        | Ver valores possíveis abaixo | Observância Legal                      |
-| dct:publisher          | Literal                        | Texto livre                  | Área técnica responsável pelo dado     |
-| dcat:contactPoint      | vcard:Organization             | Ver detalhes abaixo          | E-mail da área técnica responsável     |
-| dcat:keyword           | Literal                        | Texto livre                  | Palavras-chave                         |
-| adms:version           | Literal                        | Texto livre                  | Versão                                 |
-| dcat:theme             | Literal                        | Ver valores possíveis abaixo | Tema associado ao conjunto de dados    |
-| dcat:distribution      | dcat:Distribution              | Ver seção abaixo             | Recurso associado ao conjunto de dados |
+Veja a especificação completa do perfil DCAT-BR em https://dcat-br.github.io/dcat-br/.
 
-#### Formato do campo licença de uso
+As tabelas a seguir mostram resumidamente as propriedades definidas pelo
+perfil DCAT-BR para as classes acima.
 
-A propriedade `dcat:license` deve estar associada a uma URL de alguma licença
+### Classe `dcat:Dataset`
+
+| Propriedade RDF            | Classe RDF do Objeto Associado | Campo no Portal de Dados Abertos       |
+|----------------------------|--------------------------------|----------------------------------------|
+| dcterms:title              | Literal                        | Título                                 |
+| dcterms:description        | Literal                        | Descrição                              |
+| dcat:license               | URI                            | Licença de Uso                         |
+| dcterms:accrualPeriodicity | Literal                        | Periodicidade de Atualização           |
+| dcterms:accessRights       | Literal                        | Observância Legal                      |
+| dcterms:publisher          | Literal                        | Área técnica responsável pelo dado     |
+| dcat:contactPoint          | vcard:Organization             | E-mail da área técnica responsável     |
+| dcat:keyword               | Literal                        | Palavras-chave                         |
+| adms:version               | Literal                        | Versão                                 |
+| dcat:theme                 | Literal                        | Tema associado ao conjunto de dados    |
+| dcterms:language           | URI                            | Idioma                                 |
+| dcterms:isVersionOf        | URI                            | Versão anterior                        |
+| dcterms:isReplacedBy       | URI                            | Substituído por                        |
+| dcterms:temporal           | dcterms:PeriodOfTime           | Cobertura temporal                     |
+| dcterms:spatial            | URI                            | Cobertura espacial                     |
+| dcat:spatialResolutionInMeters | URI                        | Granularidade espacial                 |
+| dcatbr:relacionadoODS      | Literal                        | Possui relação com Objetivos de Desenvolvimento Sustentável (ODS)? |
+| dcatbr:ods                 | Literal                        | Objetivos de Desenvolvimento Sustentável (ODS) |
+| dcatbr:dadosRacaEtnia      | Literal                        | Possui dados de raça/etnia?            |
+| dcatbr:dadosGenero         | Literal                        | Possui dados de gênero?                |
+| dcat:distribution          | dcat:Distribution              | Recurso associado ao conjunto de dados |
+
+#### Propriedade `dcterms:title`
+
+Deve conter um texto livre indicando o título do conjunto de dados.
+
+#### Propriedade `dcterms:description`
+
+Deve conter um texto livre indicando a descrição do conjunto de dados.
+
+#### Propriedade `dcat:license`
+
+Deve estar associada a uma URL de alguma licença
 definida em https://opendefinition.org/licenses.
 
 Exemplo: https://opendefinition.org/licenses/cc-by-sa/ para a licença Creative
 Commons Atributtion Share-Alike.
 
-#### Valores possíveis para periodicidade de atualização
+#### Propriedade `dcterms:accrualPeriodicity`
 
-A propriedade `dct:accrualPeriodicity` deve estar associada a um dos valores
-literais abaixo, indicando a frequência que os dados são atualizados:
+Deve estar associada a um dos valores literais abaixo, indicando a frequência
+que os dados são atualizados:
 * DIARIA
 * SEMANAL
 * QUINZENAL
@@ -84,9 +111,9 @@ literais abaixo, indicando a frequência que os dados são atualizados:
 * SOB\_DEMANDA
 * OUTRAS
 
-#### Valores possíveis para observância legal
+#### Propriedade `dcterms:accessRights`
 
-A propriedade `dct:accessRights` deve estar associada a um dos valores literais
+Deve estar associada a um dos valores literais
 abaixo, indicando se o dado é público, restrito ou sigiloso de acordo com os
 dispositivos legais indicados:
 * Público
@@ -124,17 +151,32 @@ dispositivos legais indicados:
 * Sigiloso - Sigilo Procedimento Administ. de Responsabilização (Art. 5º do Decreto nº 11.129/2022)
 * Sigiloso - Sigilo Profissão de Advogado (Art. 7°, inciso II, da Lei n°11.767/2008)
 
-#### Formato do e-mail da área técnica responsável
+#### Propriedade `dcterms:publisher`
 
-A propriedade `dcat:contactPoint` deve estar associada a um nó da classe
+Deve conter um texto livre indicando a área técnica do órgão responsável pelos
+dados.
+
+#### Propriedade `dcat:contactPoint`
+
+Deve estar associada a um nó da classe
 Organization (`vcard:Organization`) da ontologia vCard (ver https://www.w3.org/TR/vcard-rdf/#d4e2121).
 
 O nó deve conter a propriedade `vcard:hasEmail` associado ao endereço de e-mail
 da área responsável pelo dado.
 
-#### Valores possíves para os temas
+#### Propriedade `dcat:keyword`
 
-A propriedade `dcat:theme` deve estar associada a um dos valores possíveis abaixo:
+Deve conter um texto livre indicando uma palavra-chave associada ao conjunto de
+dados. A propriedade pode ser definida mais de uma vez, indicando mais de uma
+palavra-chave associada.
+
+#### Propriedade `adms:version`
+
+Deve conter um texto livre indicando a versão do conjunto de dados.
+
+#### Propriedade `dcat:theme`
+
+Deve estar associada a um dos valores possíveis abaixo:
 * Abastecimento
 * Administração
 * Agropecuária, Pesca e Extrativismo
@@ -164,19 +206,120 @@ A propriedade `dcat:theme` deve estar associada a um dos valores possíveis abai
 
 A propriedade pode ser definida mais de uma vez, indicando mais de um tema associado.
 
+#### Propriedade `dcterms:language`
+
+Deve seguir o vocabulário controlado para linguagem (VCR-LN) e estar associada
+a uma URI que indica um idioma previsto na norma ISO 639-1. Consulte os idiomas
+e URIs disponíveis no site https://id.loc.gov/vocabulary/iso639-1.html.
+
+Exemplo: para o idioma Português, usar a URI `http://id.loc.gov/vocabulary/iso639-1/pt`.
+
+Referência: [Documentação do VCR-LN](https://dcat-br.github.io/dcat-br/docs/vocabularies/VCR-LN/index.html)
+
+#### Propriedade `dcterms:isVersionOf`
+
+Deve ser associada a uma URI que indica o conjunto de dados que foi substituído
+pelo conjunto atual.
+
+#### Propriedade `dcterms:isReplacedBy`
+
+Deve ser associada a uma URI que indica o conjunto de dados que substituiu
+o conjunto atual.
+
+#### Propriedade `dcterms:temporal`
+
+Deve estar associada a um nó da classe [`dcterms:PeriodOfTime`](#classe-dctermsperiodoftime)
+indicando a cobertura temporal do recurso, isto é, o período de tempo
+representado pelos dados deste recurso específico.
+
+#### Propriedade `dcterms:spatial`
+
+Deve seguir o vocabulário controlado para cobertura espacial (VCR-CE) e
+estar associado a uma URI que representa os termos disponíveis na
+[documentação do VCR-CE](https://dcat-br.github.io/dcat-br/docs/vocabularies/VCR-CE/index.html#termos).
+
+Exemplo: para cobertura de dados a nível federal use a URI
+https://dcat-br.github.io/dcat-br/docs/vocabularies/VCR-CE/FEDERAL
+
+#### Propriedade `dcat:spatialResolutionInMeters`
+
+Deve seguir o vocabulário controlado para cobertura espacial (VCR-CE) e
+estar associado a uma URI que representa os termos disponíveis na
+[documentação do VCR-CE](https://dcat-br.github.io/dcat-br/docs/vocabularies/VCR-CE/index.html#termos).
+
+Exemplo: para granularidade de dados a nível municipal use a URI
+https://dcat-br.github.io/dcat-br/docs/vocabularies/VCR-CE/MUNICIPAL
+
+#### Propriedade `dcatbr:relacionadoODS`
+
+Deve conter o valor `true` caso o conjunto tenha relação com Objetivos de
+Desenvolvimento Sustentável e `false` caso contrário.
+
+#### Propriedade `dcatbr:ods`
+
+Deve conter um dos valores possíveis a seguir:
+
+* Erradicação da Pobreza
+* Fome Zero e Agricultura Sustentável
+* Saúde e Bem-Estar
+* Educação de Qualidade
+* Igualdade de Gênero
+* Água Limpa e Saneamento
+* Energia Limpa e Acessível
+* Trabalho Decente e Crescimento Econômico
+* Indústria, Inovação e Infraestrutura
+* Redução das Desigualdades
+* Cidades e Comunidades Sustentáveis
+* Consumo e Produção Sustentáveis
+* Ação contra a Mudança Global do Clima
+* Vida na Água
+* Vida Terrestre
+* Paz, Justiça e Instituições Eficazes
+* Parcerias e Meios de Implementação
+
+A propriedade pode ser definida mais de uma vez, indicando mais de um objetivo
+de desenvolvimento sustentável associado ao conjunto.
+
+#### Propriedade `dcatbr:dadosRacaEtnia`
+
+Deve conter o valor `true` caso o conjunto possua dados de raça/etnia e `false`
+caso contrário.
+
+#### Propriedade `dcatbr:dadosGenero`
+
+Deve conter o valor `true` caso o conjunto possua dados de gênero e `false`
+caso contrário.
+
+#### Propriedade `dcat:distribution`
+
+Deve estar associada a um nó da classe `dcat:Distribution` indicando um recurso
+pertencente ao conjunto de dados.
+
+A propriedade pode ser definida mais de uma vez, quando o conjunto de dados
+possui mais de um recurso.
+
 ### Propriedades dos recursos (`dcat:Distribution`)
 
-| Propriedade RDF | Classe RDF do Objeto Associado | Referência                   | Campo no Portal de Dados Abertos |
-|-----------------|--------------------------------|------------------------------|----------------------------------|
-| dcat:accessURL  | URI                            | URL para download do arquivo | URL                              |
-| dct:format      | URI                            | Ver detalhes abaixo          | Formato                          |
-| dct:title       | Literal                        | Texto livre                  | Título                           |
-| dct:type        | Literal                        | Ver valores possíveis abaixo | Tipo do recurso                  |
-| dct:description | Literal                        | Texto livre                  | Descrição                        |
+| Propriedade RDF     | Classe RDF do Objeto Associado | Campo no Portal de Dados Abertos |
+|---------------------|--------------------------------|----------------------------------|
+| dcat:accessURL      | URI                            | URL                              |
+| dcterms:format      | URI                            | Formato                          |
+| dcterms:title       | Literal                        | Título                           |
+| dcterms:type        | Literal                        | Tipo do recurso                  |
+| dcterms:description | Literal                        | Descrição                        |
+| dcterms:temporal    | dcterms:PeriodOfTime           | Cobertura temporal               |
+| dcat:byteSize       | Literal                        | Tamanho em bytes                 |
+| spdx:checksum       | spdx:Checksum                  | Verificação de conteúdo          |
 
-#### Detalhes do campo formato
+#### Propriedade `dcat:acessURL`
 
-A propriedade `dct:format` deve estar associada a uma URL de um *media type*
+Deve conter a URL para download do arquivo em questão.
+
+Ex: https://dadosabertos-download.cgu.gov.br/dados_e-agendas/dados_e-agendas.zip
+
+#### Propriedade `dcterms:format`
+
+Deve estar associada a uma URL de um *media type*
 definido no site da IANA (https://www.iana.org/assignments/media-types/media-types.xhtml).
 
 Exemplo: https://www.iana.org/assignments/media-types/application/pdf para um arquivo PDF.
@@ -184,11 +327,77 @@ Exemplo: https://www.iana.org/assignments/media-types/application/pdf para um ar
 Alternativamente, a propriedade também pode estar associada a um valor literal
 indicando a extensão do arquivo. Exemplo: "PDF".
 
-#### Valores possíveis para o tipo
+#### Propriedade `dcterms:title`
 
-A propriedade `dct:type` deve estar associada a um dos valores possíveis abaixo:
+Deve conter um texto livre indicando o título do recurso.
+
+#### Propriedade `dcterms:type`
+
+Deve estar associada a um dos valores possíveis abaixo:
 * DADOS
 * DICIONARIO_DE_DADOS
 * DOCUMENTACAO
 * API
 * OUTRO
+
+#### Propriedade `dcterms:description`
+
+Deve conter um texto livre descrevendo o recurso.
+
+#### Propriedade `dcterms:temporal`
+
+Deve estar associada a um nó da classe [`dcterms:PeriodOfTime`](#classe-dctermsperiodoftime)
+indicando a cobertura temporal do recurso, isto é, o período de tempo
+representado pelos dados deste recurso específico.
+
+#### Propriedade `dcat:byteSize`
+
+Deve indicar o tamanho do arquivo em bytes.
+
+#### Propriedade `spdx:checksum`
+
+Deve estar associada a um nó da classe [`spdx:Checksum`](#classe-spdxchecksum)
+indicando o hash do arquivo e o algoritmo utilizado.
+
+### Classe `dcterms:PeriodOfTime`
+
+| Propriedade RDF     | Classe RDF do Objeto Associado | Campo no Portal de Dados Abertos |
+|---------------------|--------------------------------|----------------------------------|
+| dcat:startDate      | Literal                        | Cobertura temporal início        |
+| dcat:endDate        | Literal                        | Cobertura temporal fim           |
+
+#### Propriedades `dcat:startDate` e `dcat:endDate`
+
+Devem estar codificadas no padrão ISO 8601 (ano-mês-dia).
+
+Exemplo: 2026-01-30 (indica o dia 30 de janeiro de 2026).
+
+Referências:
+* https://www.w3.org/TR/vocab-dcat-3/#Property:period_start_date
+* https://www.w3.org/TR/vocab-dcat-3/#Property:period_end_date
+
+### Classe `spdx:Checksum`
+
+| Propriedade RDF     | Classe RDF do Objeto Associado | Campo no Portal de Dados Abertos |
+|---------------------|--------------------------------|----------------------------------|
+| spdx:algorithm      | URI                            | N/D                              |
+| spdx:checksumValue  | Literal                        | N/D                              |
+
+#### Propriedade `spdx:algorithm`
+
+Deve conter uma URI referenciando um dos algoritmos de hash disponíveis em
+https://spdx.org/rdf/terms.
+
+Exemplo: http://spdx.org/rdf/terms#checksumAlgorithm_sha1 para o algoritmo
+SHA-1.
+
+Referência: https://spdx.org/rdf/terms/#d4e46
+
+#### Propriedade `spdx:checksumValue`
+
+Deve conter o valor binário do hash codificado em hexadecimal usando letras
+minúsculas.
+
+Exemplo: 2aae6c35c94fcfb415dbe95f408b9ce91ee846ed
+
+Referência: https://spdx.org/rdf/terms/#d4e1053
