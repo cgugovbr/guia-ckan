@@ -185,8 +185,8 @@ Deve seguir o vocabulário controlado para cobertura espacial (VCR-CE) e
 estar associado a uma URI que representa os termos disponíveis na
 [documentação do VCR-CE](https://dcat-br.github.io/dcat-br/docs/vocabularies/VCR-CE/index.html#termos).
 
-Exemplo: para cobertura de dados a nível federal use a URI
-https://dcat-br.github.io/dcat-br/docs/vocabularies/VCR-CE/FEDERAL
+Exemplo: para cobertura de dados a nível nacional use a URI
+https://dcat-br.github.io/dcat-br/docs/vocabularies/VCR-CE/BRASIL
 
 #### Propriedade `dcat:spatialResolutionInMeters`
 
@@ -195,7 +195,7 @@ estar associado a uma URI que representa os termos disponíveis na
 [documentação do VCR-CE](https://dcat-br.github.io/dcat-br/docs/vocabularies/VCR-CE/index.html#termos).
 
 Exemplo: para granularidade de dados a nível municipal use a URI
-https://dcat-br.github.io/dcat-br/docs/vocabularies/VCR-CE/MUNICIPAL
+https://dcat-br.github.io/dcat-br/docs/vocabularies/VCR-CE/MUNICIPIO
 
 #### Propriedade `dcatbr:relacionadoODS`
 
