@@ -245,7 +245,7 @@ pertencente ao conjunto de dados.
 A propriedade pode ser definida mais de uma vez, quando o conjunto de dados
 possui mais de um recurso.
 
-### Propriedades dos recursos (`dcat:Distribution`)
+### Classe `dcat:Distribution`
 
 | Propriedade RDF     | Classe RDF do Objeto Associado | Campo no Portal de Dados Abertos |
 |---------------------|--------------------------------|----------------------------------|
