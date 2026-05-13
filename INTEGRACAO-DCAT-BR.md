@@ -60,10 +60,10 @@ perfil DCAT-BR para as classes acima.
 |----------------------------|--------------------------------|----------------------------------------|
 | dcterms:title              | Literal                        | Título                                 |
 | dcterms:description        | Literal                        | Descrição                              |
-| dcat:license               | URI                            | Licença de Uso                         |
+| dcterms:license            | URI                            | Licença de Uso                         |
 | dcterms:accrualPeriodicity | URI                            | Periodicidade de Atualização           |
 | dcterms:accessRights       | URI                            | Observância Legal                      |
-| dcterms:publisher          | Literal                        | Área técnica responsável pelo dado     |
+| dcterms:publisher          | foaf:Organization              | Área técnica responsável pelo dado     |
 | dcat:contactPoint          | vcard:Organization             | E-mail da área técnica responsável     |
 | dcat:keyword               | Literal                        | Palavras-chave                         |
 | adms:version               | Literal                        | Versão                                 |
@@ -88,7 +88,7 @@ Deve conter um texto livre indicando o título do conjunto de dados.
 
 Deve conter um texto livre indicando a descrição do conjunto de dados.
 
-#### Propriedade `dcat:license`
+#### Propriedade `dcterms:license`
 
 Deve seguir o vocabulário controlado de licenças de uso (VCR-LU) e estar
 associada a uma URI que indica uma licença.
@@ -119,8 +119,11 @@ Exemplo: https://dcat-br.github.io/dcat-br/docs/vocabularies/SEI/1 para dado pú
 
 #### Propriedade `dcterms:publisher`
 
-Deve conter um texto livre indicando a área técnica do órgão responsável pelos
-dados.
+Deve estar associada a um nó da class `foaf:Organization` da ontologia FOFA
+(ver https://xmlns.com/foaf/spec/).
+
+O nó deve conter a propriedade `foaf:name` associado ao nome da área técnica
+responsável pelo dado.
 
 #### Propriedade `dcat:contactPoint`
 
