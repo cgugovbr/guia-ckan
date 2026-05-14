@@ -117,6 +117,9 @@ Consulte os valores disponíveis na [documentação do vocabulário](https://dca
 
 Exemplo: https://dcat-br.github.io/dcat-br/docs/vocabularies/SEI/1 para dado público.
 
+A propriedade pode ser definida mais de uma vez, indicando mais de um
+normativo legal que se aplica à restrição do dado.
+
 #### Propriedade `dcterms:publisher`
 
 Deve estar associada a um nó da class `foaf:Organization` da ontologia FOFA
