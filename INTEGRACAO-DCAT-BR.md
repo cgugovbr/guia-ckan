@@ -66,7 +66,7 @@ perfil DCAT-BR para as classes acima.
 | dcterms:publisher          | foaf:Organization              | Área técnica responsável pelo dado     |
 | dcat:contactPoint          | vcard:Organization             | E-mail da área técnica responsável     |
 | dcat:keyword               | Literal                        | Palavras-chave                         |
-| adms:version               | Literal                        | Versão                                 |
+| dcat:version               | Literal                        | Versão                                 |
 | dcat:theme                 | URI                            | Tema associado ao conjunto de dados    |
 | dcterms:language           | URI                            | Idioma                                 |
 | dcterms:isVersionOf        | URI                            | Versão anterior                        |
@@ -142,7 +142,7 @@ Deve conter um texto livre indicando uma palavra-chave associada ao conjunto de
 dados. A propriedade pode ser definida mais de uma vez, indicando mais de uma
 palavra-chave associada.
 
-#### Propriedade `adms:version`
+#### Propriedade `dcat:version`
 
 Deve conter um texto livre indicando a versão do conjunto de dados.
 
