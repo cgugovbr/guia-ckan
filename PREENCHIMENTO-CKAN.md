@@ -128,11 +128,17 @@ Os campos devem ser preenchidos com chave e valor exatamente como explicados a s
     * FEDERAL
     * ESTADUAL
     * MUNICIPAL
+    * REGIAO_NORTE
+    * REGIAO_NORDESTE
+    * REGIAO_CENTRO_OESTE
+    * REGIAO_SUDESTE
+    * REGIAO_SUL
+    * INTERNACIONAL
 
 5. Detalhamento da Cobertura Espacial
 
 * Chave: valorCoberturaEspacial
-* Valores possíveis: caso a Cobertura Espacial seja Federal, não é necessário
+* Valores possíveis: caso a Cobertura Espacial seja federal ou regional, não é necessário
 preencher. Caso seja Estadual, preencher com a UF do estado a que se refere (Ex: GO).
 Caso seja Municipal, preencher com o código do município de 6 dígitos definido pelo IBGE (Ver https://www.ibge.gov.br/explica/codigos-dos-municipios.php).
 Notar que se o código tiver 7 dígitos o último é apenas um dígito de verificação e não precisa ser preenchido aqui.
@@ -142,6 +148,7 @@ Notar que se o código tiver 7 dígitos o último é apenas um dígito de verifi
 * Chave: granularidadeEspacial
 * Valores possíveis:
     * FEDERAL
+    * REGIAO
     * ESTADUAL
     * MUNICIPAL
 
@@ -253,6 +260,17 @@ Notar que se o código tiver 7 dígitos o último é apenas um dígito de verifi
     * true
     * false
 
+16. Idioma
+
+* Chave: idioma
+* Valores possíveis: um dos códigos de língua abaixo
+    * pt -> Português
+    * en -> Inglês
+    * es -> Espanhol
+    * fr -> Francês
+    * de -> Alemão
+    * it -> Italiano
+
 ### Formulário ilustrado
 
 As imagens a seguir mostram o formulário do CKAN indicando os campos que são tratados pelo Portal de Dados Abertos:
@@ -266,3 +284,5 @@ As imagens a seguir mostram o formulário do CKAN indicando os campos que são t
 ![Formulário CKAN - Parte 4](imagens/form-ckan-4.png)
 
 ![Formulário CKAN - Parte 5](imagens/form-ckan-5.png)
+
+![Formulário CKAN - Parte 6](imagens/form-ckan-6.png)
